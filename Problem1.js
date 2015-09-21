@@ -60,34 +60,54 @@
 
 
 var landscape = function () {
-    var resultAbove = "";
-    var resultBelow = "";
+    var resultTop= "";
+    var resultMiddle = "";
+    var resultBottom= "";
     var flat = function (size) {
         for (var count = 0; count < size; count++) {
-            resultAbove += " ";
-            resultBelow += "_";
+            resultTop += " ";
+            resultMiddle += " ";
+            resultBottom += "_";
         }
     };
     var hill = function (size) {
-        resultAbove += " ";
-        resultBelow += "/";
+        resultTop += " ";
+        resultMiddle += " ";
+        resultBottom += "/";
         for (var count = 0; count < size; count++) {
-            resultAbove += "_";
-            resultBelow += " ";
+            resultTop += " ";
+            resultMiddle += "_";
+            resultBottom += " ";
         }
-        resultAbove += " ";
-        resultBelow += "\\";
+        resultTop += " ";
+        resultMiddle += " ";
+        resultBottom += "\\";
     };
 
+    var mountain = function (size) {
+        resultTop += "  ";
+        resultMiddle += " /";
+        resultBottom += "/ ";
+        for (var count = 0; count < size; count++) {
+            resultTop += "_";
+            resultMiddle += " ";
+            resultBottom += " ";
+        }
+        resultTop += "  ";
+        resultMiddle += "\\ ";
+        resultBottom += " \\";
+    };
 
     //BUILD SCRIPT
     flat(3)
-    hill(4);
-    flat(6);
+    mountain(3);
+    flat(2);
+    mountain(0);
+    flat(4);
     hill(1);
     flat(1);
     //END SCRIPT
-    return resultAbove + "\n" + resultBelow;
+    return resultTop + "\n" + resultMiddle + "\n" + resultBottom;
 
 
 };
